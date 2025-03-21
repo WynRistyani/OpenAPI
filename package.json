@@ -19,6 +19,7 @@
   "homepage": "https://github.com/WynRistyani/OpenAPI#readme",
   "description": "",
   "dependencies": {
+    "express": "^4.21.2",
     "mysql2": "^3.14.0"
   }
 }
