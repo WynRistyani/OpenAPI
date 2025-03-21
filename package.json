@@ -17,5 +17,8 @@
     "url": "https://github.com/WynRistyani/OpenAPI/issues"
   },
   "homepage": "https://github.com/WynRistyani/OpenAPI#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "mysql2": "^3.14.0"
+  }
 }
