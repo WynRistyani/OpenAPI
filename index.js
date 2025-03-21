@@ -1,8 +1,18 @@
 import express from 'express';
-import mysql from  'mysql2';
+import mysql from 'mysql2';
+import swaggerUi from 'swagger-ui-express';
+import fs from 'fs';
+import YAML from 'yaml';
 
-const db = mysql.createConnection({ host: "localhost", user: "root", database: "openapi", password: ""});
+const swaggerDocument = YAML.parse(fs.readFileSync('./user-api.yml', 'utf8'));
+
+
+
+const db = mysql.createConnection({ host: "localhost", user: "root", database: "users", password: "" });
 const app = express();
+app.use(express.json());
+
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.get('/users', (req, res) => {
     db.query('SELECT * FROM user', (err, results) => {
